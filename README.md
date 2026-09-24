@@ -85,3 +85,27 @@ The generated test cases are saved in JSON format for further review and use.
 This project is developed for educational and learning purposes to explore the application of Generative AI in automotive software testing.
 
 The generated test cases must not be treated as proof of vehicle safety, regulatory compliance, or production readiness without appropriate engineering review and validation.
+
+
+## Architecture
+
+The following diagram illustrates the high-level workflow of the automotive test case generator.
+
+```mermaid
+flowchart TD
+    A["User provides automotive requirement"] --> B["Input Validation & Sensitive Data Filtering"]
+    B --> C["Requirement Quality Check"]
+    C --> D["Requirement Analysis Tool"]
+    D --> E["OpenAI Agent (Responses API)"]
+
+    E <--> F["Python Tools / Function Calling"]
+    F --> G["Requirement Analysis & Test Generation"]
+
+    G --> H["Structured JSON Test Cases"]
+    H --> I["Test Case Validation"]
+    I --> J["Coverage Tracking & Test Summary"]
+    J --> K["Save generated_test_cases.json"]
+
+    E --> L["API Token Usage & Logging"]
+    I --> M["Error Handling & Retry Logic"]
+```
